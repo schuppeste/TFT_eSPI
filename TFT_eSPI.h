@@ -315,6 +315,10 @@
                            SPI.transfer((C & 0x07E0)>>3); \
                            SPI.transfer((C & 0x001F)<<3)
 
+ #define tft_Write_32(C)  SPI.transfer(C & 0xFF)); \
+                           SPI.transfer(C >> 8) &0xFF; \
+                           SPI.transfer(C >> 16) &0x001F
+
   // Convert swapped byte 16 bit colour to 18 bit and write in 3 bytes
   #define tft_Write_16S(C) SPI.transfer(C & 0xF8); \
                            SPI.transfer((C & 0xE0)>>11 | (C & 0x07)<<5); \
