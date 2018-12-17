@@ -655,6 +655,7 @@ class TFT_eSPI : public Print {
            pushColor(uint16_t color, uint32_t len),
            pushColors(uint16_t  *data, uint32_t len, bool swap = true), // With byte swap option
            pushColors(uint8_t  *data, uint32_t len),
+           pushColors24(uint8_t  *data, uint32_t len)
 
            fillScreen(uint32_t color);
 
