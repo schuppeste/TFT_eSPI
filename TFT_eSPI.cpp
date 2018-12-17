@@ -3443,7 +3443,22 @@ void TFT_eSPI::pushColors(uint16_t *data, uint32_t len, bool swap)
 
   spi_end();
 }
+/***************************************************************************************
+** Function name:           pushColors24, wrote 18bit tdata direct from Flash
+** Description:             push an array of pixels, for image drawing
+***************************************************************************************/
+void TFT_eSPI::pushColors24(uint8_t *data, uint32_t len)
+{
+  spi_begin();
 
+  CS_L;
+
+  SPI.writeBytes(data, len)
+
+  CS_H;
+
+  spi_end();
+}
 
 /***************************************************************************************
 ** Function name:           drawLine
